@@ -1,14 +1,18 @@
 <script>
-//Composition Long way
-import { ref } from "vue";
-export default {
-  setup() {
-    const name = ref("Ari Impact");
-    const status = ref("active");
-    const tasks = ["Task One", "Task Two", "Task Three"];
-    const link = "https://google.com";
+//Options API
 
-    const toggleStatus = () => {
+export default {
+  data() {
+    return {
+      name: " John Impact",
+      status: "active",
+      tasks: ["TaskOne", "Task Two", "Task Three"],
+      link: "https://google.com",
+    };
+  },
+
+  methods: {
+    toggleStatus() {
       if (this.status === "active") {
         this.status = "pending";
       } else if (this.status === "pending") {
@@ -16,20 +20,11 @@ export default {
       } else {
         this.status = "active";
       }
-    };
-
-    return {
-      name,
-      status,
-      tasks,
-      link,
-      toggleStatus,
-    };
+    },
   },
 };
 </script>
 
-<!--Everything under here will stay the same using either Composition or -->
 <template>
   <h1>Vue Jobs</h1>
   <h2>{{ name }}</h2>
