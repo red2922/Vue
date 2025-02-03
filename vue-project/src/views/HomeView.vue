@@ -5,7 +5,7 @@ import JobListings from "@/components/JobListings.vue";
 </script>
 
 <template>
-  <Hero title="Test Title" subtitle="Testing Sub Title" />
+  <Hero title="Vue Jobs" subtitle="A Simple website built with Vue.js" />
   <HomeCards />
   <JobListings :limit="2" :showButton="true" />
 </template>
