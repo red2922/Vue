@@ -9,6 +9,14 @@ export default defineConfig({
   plugins: [vue(), vueDevTools()],
   server: {
     port: 3000,
+    //Proxy is use to replace the actual API link with a more disquised one so outside users arn't able to see the api link
+    proxy: {
+      "/api": {
+        target: "http://localhost:5000",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ""),
+      },
+    },
   },
   resolve: {
     alias: {
